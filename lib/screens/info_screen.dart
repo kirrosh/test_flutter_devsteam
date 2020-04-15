@@ -2,11 +2,11 @@ import 'dart:ui';
 
 import 'package:flutter/material.dart';
 
-class InfoPage extends StatelessWidget {
+class InfoScreen extends StatelessWidget {
   final String fullImageUrl;
   final String authorName;
 
-  const InfoPage({Key key, this.fullImageUrl, this.authorName})
+  const InfoScreen({Key key, this.fullImageUrl, this.authorName})
       : super(key: key);
 
   @override

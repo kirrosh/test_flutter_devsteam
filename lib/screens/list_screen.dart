@@ -1,7 +1,8 @@
+import 'package:devsteam1/services/Album.dart';
 import 'package:devsteam1/services/unsplash_api.dart';
 import 'package:flutter/material.dart';
 
-import 'info-page.dart';
+import 'info_screen.dart';
 
 class ImageItem extends StatelessWidget {
   final String imageUrl;
@@ -16,7 +17,7 @@ class ImageItem extends StatelessWidget {
         Navigator.push(
           context,
           MaterialPageRoute(
-              builder: (context) => InfoPage(
+              builder: (context) => InfoScreen(
                     fullImageUrl: this.fullImageUrl,
                     authorName: this.authorName,
                   )),
@@ -56,12 +57,12 @@ class ImageItem extends StatelessWidget {
   }
 }
 
-class ImageList extends StatefulWidget {
+class ImageListScreen extends StatefulWidget {
   @override
   _ImageListState createState() => _ImageListState();
 }
 
-class _ImageListState extends State<ImageList> {
+class _ImageListState extends State<ImageListScreen> {
   Future<List<Album>> futureAlbum;
   @override
   void initState() {
@@ -84,9 +85,9 @@ class _ImageListState extends State<ImageList> {
               return ListView(
                 children: snapshot.data
                     .map((item) => ImageItem(
-                        imageUrl: item.urls['small'],
-                        authorName: item.user['name'],
-                        fullImageUrl: item.urls['full']))
+                        imageUrl: item.urls.small,
+                        authorName: item.user.name,
+                        fullImageUrl: item.urls.full))
                     .toList(),
               );
             } else if (snapshot.hasError) {
