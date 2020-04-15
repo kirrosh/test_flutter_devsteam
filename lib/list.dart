@@ -1,4 +1,4 @@
-import 'package:devsteam/services/unsplash_api.dart';
+import 'package:devsteam1/services/unsplash_api.dart';
 import 'package:flutter/material.dart';
 
 import 'info-page.dart';
