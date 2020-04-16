@@ -11,7 +11,6 @@ class InfoScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    print(this.fullImageUrl);
     return Scaffold(
       appBar: AppBar(
         title: Text('by ${this.authorName}'),

@@ -1,3 +1,5 @@
+import 'package:devsteam1/components/carousel.dart';
+import 'package:devsteam1/components/styled_card.dart';
 import 'package:devsteam1/services/Album.dart';
 import 'package:devsteam1/services/unsplash_api.dart';
 import 'package:flutter/material.dart';
@@ -81,17 +83,16 @@ class _ImageListState extends State<ImageListScreen> {
           future: futureAlbum,
           builder: (context, snapshot) {
             if (snapshot.hasData) {
-              print(snapshot.data);
-              return ListView(
-                children: snapshot.data
-                    .map((item) => ImageItem(
+              return CarouselWithState(
+                images: snapshot.data
+                    .map((item) => ImageData(
                         imageUrl: item.urls.small,
-                        authorName: item.user.name,
-                        fullImageUrl: item.urls.full))
+                        name: item.user.name,
+                        full: item.urls.full))
                     .toList(),
               );
             } else if (snapshot.hasError) {
-              print(snapshot);
+//              print(snapshot);
               return Text("${snapshot.error}");
             }
             return Center(child: CircularProgressIndicator());
