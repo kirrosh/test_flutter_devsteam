@@ -39,8 +39,11 @@ class _CarouselWithStateState extends State<CarouselWithState> {
     return Transform(
       alignment: Alignment.center,
       transform: transformController.calculateTransform(selectedPage, index),
-      child: StyledCard(
-        imageData: imageData,
+      child: Opacity(
+        opacity: index - selectedPage > 3 ? 0 : 1,
+        child: StyledCard(
+          imageData: imageData,
+        ),
       ),
     );
   }
@@ -68,7 +71,6 @@ class _CarouselWithStateState extends State<CarouselWithState> {
           widthFactor: double.infinity,
           child: Container(
             height: 250,
-//            width: 700,
             child: PageView.custom(
               scrollDirection: Axis.horizontal,
               controller: controller,

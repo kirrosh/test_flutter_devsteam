@@ -4,61 +4,6 @@ import 'package:devsteam1/services/Album.dart';
 import 'package:devsteam1/services/unsplash_api.dart';
 import 'package:flutter/material.dart';
 
-import 'info_screen.dart';
-
-class ImageItem extends StatelessWidget {
-  final String imageUrl;
-  final String fullImageUrl;
-  final String authorName;
-  ImageItem({this.imageUrl, this.authorName, this.fullImageUrl});
-
-  @override
-  Widget build(BuildContext context) {
-    return GestureDetector(
-      onTap: () {
-        Navigator.push(
-          context,
-          MaterialPageRoute(
-              builder: (context) => InfoScreen(
-                    fullImageUrl: this.fullImageUrl,
-                    authorName: this.authorName,
-                  )),
-        );
-      },
-      child: Container(
-        child: Stack(
-          children: <Widget>[
-            Container(
-              width: double.infinity,
-              child: Image.network(
-                this.imageUrl,
-                fit: BoxFit.fitWidth,
-              ),
-            ),
-            Center(
-              widthFactor: double.infinity,
-              child: Container(
-                width: double.infinity,
-                decoration: BoxDecoration(
-                  color: Colors.black.withOpacity(0.7),
-                ),
-                child: Text(
-                  'by ${this.authorName}',
-                  textAlign: TextAlign.center,
-                  style: TextStyle(
-                    fontSize: 30,
-                    color: Colors.white,
-                  ),
-                ),
-              ),
-            ),
-          ],
-        ),
-      ),
-    );
-  }
-}
-
 class ImageListScreen extends StatefulWidget {
   @override
   _ImageListState createState() => _ImageListState();
