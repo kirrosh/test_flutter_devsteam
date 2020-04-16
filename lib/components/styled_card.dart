@@ -22,11 +22,14 @@ class StyledCard extends StatelessWidget {
           Container(
             child: ClipRRect(
               borderRadius: BorderRadius.circular(16.0),
-              child: Image(
-                height: 250,
-                width: 250,
-                fit: BoxFit.cover,
-                image: NetworkImage(this.imageData.imageUrl),
+              child: Container(
+                decoration: BoxDecoration(color: Colors.cyan),
+                child: Image(
+                  height: 250,
+                  width: 250,
+                  fit: BoxFit.cover,
+                  image: NetworkImage(this.imageData.imageUrl),
+                ),
               ),
             ),
             alignment: Alignment.center,
